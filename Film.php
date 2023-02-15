@@ -10,33 +10,35 @@ class Film{
     private int $_duree;
     private Realisateur $_realisateur;
     private string $_synopsis;
+    private Genre $_genre;
+    
 
     // Construct
     
-    public function __construct(string $titre, string $datesortie, int $duree, Realisateur $realisateur, string $synopsis)
+    public function __construct(string $titre, string $datesortie, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre)
     {
         $this->_titre = $titre;
         $this->_datesortie =$datesortie;
         $this->_duree = $duree;
-        $this->_realisateur = $realisateur;
         $this->_synopsis = $synopsis;
+        $this->_realisateur = $realisateur;
+        $this->_realisateur->addFilms($this);
+        $this->_genre = $genre;
+        $this->_genre->addFilm($this);
+        
+        
     }
-
     
-    public function infoFilm(){
+    public function infoFilms(){
 
-        echo "Le titre du film est". $this->_titre. ", il est sorti le" .$this->_datesortie. " et a une duree de ".$this->_duree. " minutes. Le réalisateur est ".$this->_realisateur."<br>";
-        echo "Voici le synopsis du film : ".$this->_synopsis;
+        echo $this->_titre. " sorti en " .$this->_datesortie. " d'une durée de " .$this->_duree. " minutes, réalisé par " .$this->_realisateur. ". Synopsis : " .$this->_synopsis;
 
 
     }
-
-    
-
-
-
 
 }
+
+    
 
 ?>
 
