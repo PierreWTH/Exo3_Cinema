@@ -8,9 +8,10 @@ class Film{
     private string $_titre;
     private string $_datesortie;
     private int $_duree;
-    private Realisateur $_realisateur;
     private string $_synopsis;
+    private Realisateur $_realisateur;
     private Genre $_genre;
+
     
 
     // Construct
@@ -25,6 +26,7 @@ class Film{
         $this->_realisateur->addFilms($this);
         $this->_genre = $genre;
         $this->_genre->addFilm($this);
+        
         
         
     }
