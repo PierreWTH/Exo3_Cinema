@@ -22,14 +22,6 @@ class Casting{
         return $this->get_film();
     }
 
-// Méthodes
-
-    public function afficherCasting(){
-        echo "<h3> Casting </h3> Dans le film " .$this->_film. ", ".$this->_role. " est joué par ".$this->_acteur .".";
-    }
-
-
-
 // Getter & Setters Film
   
     public function get_film()

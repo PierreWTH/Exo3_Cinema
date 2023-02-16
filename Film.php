@@ -17,25 +17,39 @@ class Film{
 
     // Construct
     
-    public function __construct(string $titre, string $datesortie, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre)
+        public function __construct(string $titre, string $datesortie, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre)
         {
-        $this->_titre = $titre;
-        $this->_datesortie =$datesortie;
-        $this->_duree = $duree;
-        $this->_synopsis = $synopsis;
-        $this->_realisateur = $realisateur;
-        $this->_realisateur->addFilms($this);
-        $this->_genre = $genre;
-        $this->_genre->addFilm($this);
-        $this->_castings = [];
+            $this->_titre = $titre;
+            $this->_datesortie =$datesortie;
+            $this->_duree = $duree;
+            $this->_synopsis = $synopsis;
+            $this->_realisateur = $realisateur;
+            $this->_realisateur->addFilms($this);
+            $this->_genre = $genre;
+            $this->_genre->addFilm($this);
+            $this->_castings = [];
         }
       
         
         public function addCasting($_casting)
         {
-        $this->_castings[] = $_casting;
-    
+            $this->_castings[] = $_casting;
         }
+
+        public function afficherCasting()
+        {   
+            $result = "<h3> Casting </h3>"; 
+            if(count($this->_castings) == 0) {
+                // message pas de casting
+                $result .= "Pas de casting pour ce film !";
+            } else {
+                foreach ($this->_castings as $casting) {
+                    $result .= $casting->get_role(). " est joué par ".$casting->get_acteur()."<br>";
+                 }
+            }   
+            return $result;
+        }
+
     
         public function infoFilms(){
 

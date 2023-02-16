@@ -49,12 +49,12 @@ $CastThebatman = new Casting($thebatman, $batman, $pattinson);
 $castAmericanPsycho = new Casting($americanpsycho, $patrickbateman, $bale);
 
 
-
-
 $bale->afficherRole();
-$CastTheDarkKnight->afficherCasting();
 $fiction->afficherFilmsGenre();
 $pattinson->afficherFilm();
 $spielberg->afficherFilmsReal();
 $spielberg -> afficherInfos();
+
+echo $titanic->afficherCasting();
+
 ?>

@@ -28,7 +28,7 @@ class Acteur extends Personne{
     {
         echo "<h3>".$this->_prenom." ".$this->_nom. " a joué le rôle de :</h3>";
         foreach ($this->_castings as $casting) {
-            echo  $casting->get_role()."<br>";
+            echo  $casting->get_role()." dans" .$casting->get_film()."<br>";
         }
 
     }

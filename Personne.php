@@ -27,9 +27,9 @@ class Personne{
     }
 
     public function __toString()
-        {
-            return $this->get_prenom() . " " . $this->get_nom();
-        }
+    {
+        return $this->get_prenom() . " " . $this->get_nom();
+    }
 
     // GETTERS AND SETTERS
 
