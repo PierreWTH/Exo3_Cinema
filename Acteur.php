@@ -2,6 +2,7 @@
 
 class Acteur extends Personne{
 
+
 // Déclaration propriété
     private array $_castings;
 
@@ -11,27 +12,51 @@ class Acteur extends Personne{
     public function __construct($prenom, $nom, $birthdate, $sexe)
     {   
         parent::__construct($nom, $prenom, $birthdate, $sexe);
-        $this->castings = [];
+        $this->_castings = [];
     }
 
 // Méthodes
 
-    public function addActeur(Film $film)
-        {
-            $this->_castings[] = $film;
-
+    public function addCasting($_casting)
+    {
+        $this->_castings[] = $_casting;
+    
+    }
+    
+    
+    public function afficherRole()
+    {
+        echo "<h3>".$this->_prenom." ".$this->_nom. " a joué le rôle de :</h3>";
+        foreach ($this->_castings as $casting) {
+            echo  $casting->get_role()."<br>";
         }
 
-    function afficherRolesActeur(){
-        echo "Rôles de l'acteur ".$this->_nom. " ".$this->_prenom."<br><br>";
-        foreach ($this->_casting as $key => $value) {
-            echo $key->infoFilms()."<br>";
+    }
+    
+    public function afficherFilm()
+    {
+        echo "<h3>".$this->_prenom." ".$this->_nom. " a joué dans : </h3>";
+        foreach ($this->_castings as $casting) {
+            echo  $casting->get_film()."<br>";
         }
-    
-    
-        
 
-    
+    }
+
+    // GETTERS AND SETTERS
+
+    public function get_castings()
+    {
+        return $this->_castings;
+    }
+
+    public function set_castings($_castings)
+    {
+        $this->_castings = $_castings;
+
+        return $this;
+    }
 }
+    
+
 
 ?>

@@ -3,6 +3,7 @@
 class Realisateur extends Personne{
  
     private array $_filmsreal;
+    
     // Construct
     
     
@@ -20,11 +21,25 @@ class Realisateur extends Personne{
     }
     
     function afficherFilmsReal(){
-        echo "Films du réalisateur ".$this->_nom. " ".$this->_prenom."<br><br>";
+        echo "<h3> Films du réalisateur ".$this->_prenom. " ".$this->_nom." :<br> </h3>";
         foreach ($this->_filmsreal as $value) {
             echo $value->infoFilms()."<br>";
         }
 
+    }
+
+    // GETTERS AND SETTERS
+
+    public function get_filmsreal()
+    {
+        return $this->_filmsreal;
+    }
+
+    public function set_filmsreal($_filmsreal)
+    {
+        $this->_filmsreal = $_filmsreal;
+
+        return $this;
     }
 }
     
